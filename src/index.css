@@ -1,111 +1,333 @@
 * {
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #222;
+
+html {
+  scroll-behavior: smooth;
 }
+
+
+body {
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  background: #f5f3ef;
+
+  color: #171717;
+
+  overflow-x: hidden;
+}
+
 
 a {
   text-decoration: none;
+
   color: inherit;
 }
 
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* =========================================
+   CINEMATIC NAVBAR
+========================================= */
+
 .navbar {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
 
-  padding: 20px 40px;
+  justify-content: space-between;
 
-  background: #173b2d;
+  padding: 25px 6%;
+
   color: white;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.35),
+      transparent);
 }
+
 
 .logo {
   font-size: 24px;
-  font-weight: bold;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: white;
 }
+
 
 .nav-links {
   display: flex;
-  gap: 25px;
+
+  gap: 35px;
 }
 
-.page {
-  padding: 60px 8%;
+
+.nav-links a {
+  position: relative;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  opacity: 0.8;
+
+  transition: 0.3s;
 }
+
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -7px;
+
+  width: 0;
+
+  height: 1px;
+
+  background: white;
+
+  transition: 0.3s;
+}
+
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   CINEMATIC STAGE CARDS
+========================================= */
 
 .stage-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
+    repeat(auto-fit, minmax(300px, 1fr));
 
   gap: 25px;
-
-  margin-top: 30px;
 }
 
-.stage-card {
-  background: white;
 
-  border-radius: 15px;
+.stage-card {
+  position: relative;
+
+  height: 500px;
 
   overflow: hidden;
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08);
-}
+  border-radius: 20px;
 
-.stage-image {
-  height: 220px;
-
-  background: #26332d;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #111;
 
   color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 }
 
-.stage-info {
-  padding: 20px;
+
+.stage-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.25);
 }
 
-.stage-info h2 {
-  margin-bottom: 10px;
+
+/* Image */
+
+.stage-card-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s ease;
 }
 
-.stage-info p {
-  margin-bottom: 8px;
+
+.stage-card:hover .stage-card-image {
+  transform: scale(1.08);
 }
+
+
+/* Cinematic overlay */
+
+.stage-card-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(to top,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.1));
+}
+
+
+/* Content */
+
+.stage-card-content {
+  position: absolute;
+
+  inset: 0;
+
+  padding: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+
+/* Verified badge */
 
 .verified {
   display: inline-block;
 
-  margin-top: 10px;
+  width: fit-content;
 
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+
+/* Location */
+
+.stage-location {
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+
+  opacity: 0.8;
+}
+
+
+/* Stage name */
+
+.stage-card h2 {
+  font-size: 30px;
+
+  margin-bottom: 8px;
+
+  line-height: 1.1;
+}
+
+
+/* Landmark */
+
+.stage-landmark {
+  font-size: 14px;
+
+  opacity: 0.8;
+
+  margin-bottom: 18px;
+}
+
+
+/* Destination pills */
+
+.destinations {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+
+.destinations span {
   padding: 6px 10px;
 
   border-radius: 20px;
 
-  background: #dcefe3;
+  background: rgba(255, 255, 255, 0.12);
 
-  color: #23613f;
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 11px;
 }
 
-.footer {
-  padding: 30px;
+@media (max-width: 768px) {
 
-  text-align: center;
+  .navbar {
+    padding: 20px 6%;
+  }
 
-  background: #173b2d;
 
-  color: white;
+  .logo {
+    font-size: 20px;
+  }
+
+
+  .nav-links {
+    gap: 15px;
+  }
+
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
 }

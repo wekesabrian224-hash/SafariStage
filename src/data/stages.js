@@ -1,3 +1,7 @@
+import nairobiImage from "../assets/images/nairobi-stage.jpg";
+import mombasaImage from "../assets/images/mombasa-stage.jpg";
+import kisumuImage from "../assets/images/kisumu-stage.jpg";
+
 const stages = [
   {
     id: 1,
@@ -5,6 +9,7 @@ const stages = [
     city: "Nairobi",
     country: "Kenya",
     landmark: "Near National Archives",
+    image: nairobiImage,
     destinations: ["Kisumu", "Kakamega", "Busia"],
     verified: true,
   },
@@ -14,7 +19,8 @@ const stages = [
     name: "Mombasa Bus Stage",
     city: "Mombasa",
     country: "Kenya",
-    landmark: "Near CBD",
+    landmark: "Mombasa CBD",
+    image: mombasaImage,
     destinations: ["Nairobi", "Malindi", "Kilifi"],
     verified: true,
   },
@@ -25,6 +31,7 @@ const stages = [
     city: "Kisumu",
     country: "Kenya",
     landmark: "Kisumu CBD",
+    image: kisumuImage,
     destinations: ["Nairobi", "Kakamega", "Busia"],
     verified: true,
   },

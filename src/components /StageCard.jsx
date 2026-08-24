@@ -1,25 +1,40 @@
 function StageCard({ stage }) {
   return (
     <article className="stage-card">
-      <div className="stage-image">
-        <span>BUS STAGE</span>
-      </div>
+      {/* Stage photograph */}
 
-      <div className="stage-info">
-        <h2>{stage.name}</h2>
+      <img
+        src={stage.image}
+        alt={`${stage.name} in ${stage.city}`}
+        className="stage-card-image"
+      />
 
-        <p>
-          📍 {stage.city}, {stage.country}
-        </p>
+      {/* Dark cinematic overlay */}
 
-        <p>Landmark: {stage.landmark}</p>
+      <div className="stage-card-overlay"></div>
 
-        <p>
-          Destinations:
-          {stage.destinations.join(", ")}
-        </p>
+      {/* Stage information */}
 
-        {stage.verified && <span className="verified">✓ Verified</span>}
+      <div className="stage-card-content">
+        <div className="stage-card-top">
+          {stage.verified && <span className="verified">✓ VERIFIED</span>}
+        </div>
+
+        <div>
+          <p className="stage-location">
+            📍 {stage.city}, {stage.country}
+          </p>
+
+          <h2>{stage.name}</h2>
+
+          <p className="stage-landmark">{stage.landmark}</p>
+
+          <div className="destinations">
+            {stage.destinations.map((destination) => (
+              <span key={destination}>{destination}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </article>
   );

@@ -1,0 +1,528 @@
+/* =========================================
+   HOME PAGE
+========================================= */
+
+.home {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 92vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 8%;
+
+  background-image:
+    url("../assets/images/hero-africa.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+
+  isolation: isolate;
+}
+
+
+/* Dark cinematic overlay */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.2));
+
+  z-index: -1;
+}
+
+
+/* Slight cinematic movement */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5%;
+
+  background:
+    inherit;
+
+  background-size: cover;
+  background-position: center;
+
+  z-index: -2;
+
+  animation: cinematicZoom 14s ease-in-out infinite alternate;
+}
+
+
+@keyframes cinematicZoom {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  max-width: 850px;
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: heroReveal 1.2s ease forwards;
+}
+
+
+@keyframes heroReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+.hero-label,
+.section-label {
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  font-weight: 600;
+
+  margin-bottom: 20px;
+
+  opacity: 0.8;
+}
+
+
+.hero h1 {
+  font-size: clamp(55px, 8vw, 105px);
+
+  line-height: 0.95;
+
+  font-weight: 800;
+
+  letter-spacing: -4px;
+
+  margin-bottom: 30px;
+}
+
+
+.hero h1 span {
+  display: block;
+
+  font-weight: 300;
+
+  font-style: italic;
+}
+
+
+.hero-description {
+  max-width: 600px;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  margin-bottom: 35px;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.hero-search {
+  max-width: 700px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 6px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 50px;
+
+  margin-bottom: 25px;
+}
+
+
+.search-icon {
+  padding-left: 20px;
+
+  font-size: 18px;
+}
+
+
+.hero-search input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  padding: 15px;
+
+  font-size: 15px;
+}
+
+
+.hero-search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+.hero-search button {
+  border: none;
+
+  padding: 14px 25px;
+
+  border-radius: 40px;
+
+  background: white;
+
+  color: #111;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.hero-search button:hover {
+  transform: scale(1.04);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.hero-button,
+.cta-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 15px 25px;
+
+  background: white;
+
+  color: #111;
+
+  border-radius: 40px;
+
+  font-weight: 700;
+
+  transition: 0.35s;
+}
+
+
+.hero-button:hover,
+.cta-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.hero-scroll {
+  position: absolute;
+
+  bottom: 30px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  opacity: 0.7;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.hero-scroll span {
+  width: 25px;
+
+  height: 40px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 20px;
+
+  position: relative;
+}
+
+
+.hero-scroll span::after {
+  content: "";
+
+  width: 4px;
+
+  height: 8px;
+
+  background: white;
+
+  border-radius: 5px;
+
+  position: absolute;
+
+  top: 7px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  animation: scrollMove 1.5s infinite;
+}
+
+
+@keyframes scrollMove {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro-section {
+  padding: 120px 8%;
+
+  max-width: 1000px;
+}
+
+
+.intro-section h2,
+.featured-section h2,
+.cta-section h2 {
+  font-size: clamp(40px, 5vw, 70px);
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 25px;
+}
+
+
+.intro-section>p:last-child {
+  max-width: 650px;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* =========================================
+   FEATURED STAGES
+========================================= */
+
+.featured-section {
+  padding: 80px 8%;
+}
+
+
+.section-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: end;
+
+  margin-bottom: 45px;
+}
+
+
+.section-heading a {
+  font-weight: 700;
+
+  border-bottom: 1px solid #222;
+
+  padding-bottom: 5px;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta-section {
+  min-height: 500px;
+
+  padding: 100px 8%;
+
+  display: flex;
+
+  align-items: center;
+
+  color: white;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)),
+    url("../assets/images/travel-africa.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+
+.cta-section h2 {
+  max-width: 800px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 90vh;
+
+    padding: 100px 6%;
+  }
+
+
+  .hero h1 {
+    font-size: 55px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+
+  .hero-search {
+    border-radius: 20px;
+
+    flex-wrap: wrap;
+
+    padding: 10px;
+  }
+
+
+  .hero-search input {
+    min-width: 180px;
+  }
+
+
+  .hero-search button {
+    width: 100%;
+  }
+
+
+  .hero-scroll {
+    display: none;
+  }
+
+
+  .intro-section,
+  .featured-section {
+    padding: 80px 6%;
+  }
+
+
+  .section-heading {
+    display: block;
+  }
+
+
+  .section-heading a {
+    display: inline-block;
+
+    margin-top: 10px;
+  }
+
+
+  .cta-section {
+    padding: 80px 6%;
+  }
+
+}
