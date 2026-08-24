@@ -5,8 +5,8 @@ import Explore from "./pages/Explore";
 import RoutesPage from "./pages/Routes";
 import About from "./pages/About";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components /Navbar";
+import Footer from "./components /Footer";
 
 function App() {
   return (

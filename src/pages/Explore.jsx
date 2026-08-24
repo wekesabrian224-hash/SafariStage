@@ -1,5 +1,5 @@
 import stages from "../data/stages";
-import StageCard from "../components/StageCard";
+import StageCard from "../components /StageCard";
 
 function Explore() {
   return (
