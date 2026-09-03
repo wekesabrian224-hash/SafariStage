@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import stages from "../data/stages";
 
 import StageCard from "../components /StageCard";
+import StageMap from "../components /StageMap";
+
+import NearbyStages from "../components /NearbyStages";
 
 import "./Home.css";
 
